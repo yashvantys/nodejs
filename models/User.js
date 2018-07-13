@@ -4,8 +4,9 @@ var bcrypt = require('bcrypt-nodejs')
 var userSchema = new mongoose.Schema({
     email: String,
     password: String,
-    name: String,
-    description: String
+    first_name: String,
+    last_name: String
+    //role: String    
 })
 
 userSchema.pre('save', function(next) {
@@ -21,5 +22,8 @@ userSchema.pre('save', function(next) {
        next()
     })
 })
+
+
+
 
 module.exports = mongoose.model('User', userSchema)

@@ -1,0 +1,22 @@
+<!-- Navbar-->
+<header class="app-header"><a class="app-header__logo">Admin</a>
+  <!-- Navbar Right Menu-->
+  <ul class="app-nav">    
+    <!-- User Menu-->
+    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+      <ul class="dropdown-menu settings-menu dropdown-menu-right">
+        <li><a class="dropdown-item" ><i class="fa fa-user fa-lg"></i> Profile</a></li>
+        <li><a class="dropdown-item" (click)="userLogout()"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</header>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+  <ul class="app-menu">
+    <li><a class="app-menu__item" routerLink="/admin/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+    <li><a class="app-menu__item" routerLink="/admin/users" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Users</span></a></li>
+    <li><a class="app-menu__item" routerLink="/admin/content" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="app-menu__icon fa fa-file-text-o"></i><span class="app-menu__label">Content Management </span></a></li>    
+  </ul>
+</aside>

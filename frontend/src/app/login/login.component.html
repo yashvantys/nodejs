@@ -1,0 +1,49 @@
+<section class="login-content">
+       <div class="login-box">
+        <form class="login-form" (ngSubmit)="login()" [formGroup]="loginForm">
+          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
+          <p *ngIf="error == true" class="alert alert-danger">Invalid username or password.</p>
+          <div class="form-group" [ngClass]="{'alert alert-danger': (loginForm.get('email').touched || loginForm.get('email').dirty) && !loginForm.get('email').valid }">
+            <label class="control-label">Email</label>
+            <input class="form-control" type="text" placeholder="Email" formControlName="email">
+            <span class="help-block" *ngIf="(loginForm.get('email').touched || loginForm.get('email').dirty) && loginForm.get('email').errors">
+              <span *ngIf="loginForm.get('email').errors?.required">Email is required.</span>
+             <span *ngIf="loginForm.get('email').errors.pattern">Email is invalid.</span>
+            </span>
+          </div>
+          <div class="form-group" [ngClass]="{'alert alert-danger': (loginForm.get('password').touched || loginForm.get('password').dirty) && !loginForm.get('password').valid }">
+            <label class="control-label">PASSWORD</label>
+            <input class="form-control" type="password" placeholder="Password" formControlName="password">             
+             <span class="help-block" *ngIf="(loginForm.get('password').touched || loginForm.get('password').dirty) && loginForm.get('password').errors">
+            <span *ngIf="loginForm.get('password').errors?.required">Password is required.</span>            
+          </span>
+          </div>
+          <div class="form-group">
+            <div class="utility">
+              <div class="animated-checkbox">
+                <label>
+                  <input type="checkbox"><span class="label-text">Stay Signed in</span>
+                </label>
+              </div>
+              <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Forgot Password ?</a></p>
+            </div>
+          </div>
+          <div class="form-group btn-container">
+            <button class="btn btn-primary btn-block" [disabled]="!loginForm.valid"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
+          </div>
+        </form>
+        <form class="forget-form">
+          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Forgot Password ?</h3>
+          <div class="form-group">
+            <label class="control-label">EMAIL</label>
+            <input class="form-control" type="text" placeholder="Email">
+          </div>
+          <div class="form-group btn-container">
+            <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>RESET</button>
+          </div>
+          <div class="form-group mt-3">
+            <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Back to Login</a></p>
+          </div>
+        </form>
+      </div>
+    </section>
