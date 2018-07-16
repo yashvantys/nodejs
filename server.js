@@ -40,7 +40,7 @@ app.post('/post', auth.checkAuthenticated, (req, res) =>{
     })   
 })
 
-app.get('/users', async (req, res, next)=>{    
+/*app.get('/users', auth.checkAuthenticated, async (req, res, next)=>{    
    try {
        var users = await User.find({}, '-password -__v')           
        res.send(users)            
@@ -49,9 +49,9 @@ app.get('/users', async (req, res, next)=>{
         res.sendStatus(500)
     }  
 //})
-})
+})*/
 
-app.post('/users', async (req, res, next)=>{
+app.post('/users', auth.checkAuthenticated, async (req, res, next)=>{
     try {
             var result = []
             // get values from req
@@ -86,7 +86,7 @@ app.post('/users', async (req, res, next)=>{
 })
 
 // add new user
-app.post('/addUser',(req, res)=>{
+app.post('/addUser',auth.checkAuthenticated, (req, res)=>{
     var userData = req.body;
     var user = new User(userData)               
     user.save((err, newUser) => {
@@ -98,7 +98,7 @@ app.post('/addUser',(req, res)=>{
 })
 
 // update user
-app.post('/updateUser/:id',(req, res)=>{
+app.post('/updateUser/:id',auth.checkAuthenticated, (req, res)=>{
         var password = req.body.password
         bcrypt.hash(password, null, null, (err, hash) =>{
             if(err) return next(err)     
@@ -113,7 +113,7 @@ app.post('/updateUser/:id',(req, res)=>{
          })   
 })
 // delete user
-app.delete('/deleteUser/:id', (req, res) => {
+app.delete('/deleteUser/:id', auth.checkAuthenticated, (req, res) => {
     User.findByIdAndRemove({_id: req.params.id}, function (err, deleteUser) {
         if(err){
             return res.status(500).send({message: 'Error deleting User'})

@@ -19,7 +19,8 @@ var router = express.Router()
     })
 
     function createSendToken(res, user){
-        var payload = { user_id: user._id,email: user.email, name:user.name }
+        //var payload = { user_id: user._id,email: user.email, name:user.name }
+        var payload = { sub: user._id }
         var token = jwt.encode(payload, '123')
         res.status(200).send({statusCode: 200, message: 'success', token})
     }

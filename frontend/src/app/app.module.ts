@@ -18,6 +18,7 @@ import { UsersComponent } from './users/users.component'
 import { DataTablesModule } from 'angular-datatables'
 import { UsersService } from './services/users.service';
 import { ContentComponent } from './content/content.component'
+import { AuthInterceptorService} from './authInterceptor.service'
 
 
 @NgModule({
@@ -40,7 +41,11 @@ import { ContentComponent } from './content/content.component'
     HttpClientModule,
     DataTablesModule
   ],
-  providers: [ApiService, AuthService, AuthGuard, UsersService],
+  providers: [ApiService, AuthService, AuthGuard, UsersService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
