@@ -6,7 +6,7 @@ import 'rxjs/Rx'
 
 @Injectable()
 export class UsersService {
-    path = environment.path 
+    path = environment.path + '/users'
     constructor(private http: HttpClient){}   
     
     getUsers(){
@@ -15,7 +15,7 @@ export class UsersService {
         },error =>{
             return false
         })*/
-        const response = this.http.get(this.path + '/users').map(res => res)
+        const response = this.http.get(this.path ).map(res => res)
         return response
     }
     addUsers(userData){
