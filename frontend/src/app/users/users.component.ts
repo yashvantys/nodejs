@@ -151,7 +151,10 @@ export class UsersComponent implements OnInit {
                                   table.ajax.reload(null, false);
                                 }
                           }, err => {
-                            console.log("error:" +err);
+                            $('#ajaxResults').addClass('alert alert-danger').html('Sorry for the inconvenience. Please try again later.') ;
+                            setTimeout(function() {
+                                 $('#ajaxResults').removeClass('alert alert-danger').html('');
+                               }, 2000);
             
                           });
                        }
