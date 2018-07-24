@@ -5,14 +5,16 @@ import { environment } from '../../environments/environment'
 import { UsersService } from '../services/users.service'
 import { Observable } from 'rxjs/Observable'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
-import { ajaxDelete } from 'rxjs/observable/dom/AjaxObservable';
-import { Http } from '@angular/http';
+import { ajaxDelete } from 'rxjs/observable/dom/AjaxObservable'
+import { Http } from '@angular/http'
+import * as decode from 'jwt-decode'
 declare var bootbox:any
 class UsersData {
   _id: string
   first_name: string
   last_name: string
   email: string
+  role: string
 }
 class DataTablesResponse {
   data: any[]
@@ -37,12 +39,21 @@ export class UsersComponent implements OnInit {
   firstName: string = null
   lastName: string = null
   userEmail: string = null
+  userRole: string = null
+  loggedInUserId: string = null
+  loggedInUserRole: string = null
+  
   
 
   constructor(private http: HttpClient, private usersservice: UsersService, private userFormBuilder: FormBuilder) {}
 
   ngOnInit() {
-      this.ajaxList()
+      const token = localStorage.getItem('token');
+      const tokenPayload = decode(token)
+      this.loggedInUserId = tokenPayload.sub
+      this.loggedInUserRole = tokenPayload.userRole
+      this.userRole = ""
+      this.ajaxList(this.loggedInUserId, this.loggedInUserRole)
       this.userForm = this.userFormBuilder.group({
         user_id:[''],
         first_name:['', [ Validators.required]],
@@ -50,7 +61,8 @@ export class UsersComponent implements OnInit {
         email: ['', [ Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
         password: ['', [ Validators.required]],
         newpassword:[''],
-        conformpassword:['']        
+        conformpassword:[''],
+        role:['', Validators.required]       
         },   
         {validator: this.matchingPasswords('newpassword', 'conformpassword')}      
       ) 
@@ -79,7 +91,7 @@ export class UsersComponent implements OnInit {
     }
   }
     
-  ajaxList(){
+  ajaxList(loggedInUserId, loggedInUserRole){
         this.dtOptions = {
               responsive: true,
               pageLength:10,
@@ -111,8 +123,15 @@ export class UsersComponent implements OnInit {
                 { data: "email" },
                 {
                   data: null, render: function (data, type, row) {
-                      return `<button type="button" class="btn btn-primary editbutton" users-id="${data._id}" users-first-name="${data.first_name}" users-last-name="${data.last_name}" users-email="${data.email}">Edit</button>
-                              <button type="button" class="btn btn-danger deletebutton" users-id="${data._id}">Delete</button>`;
+                      var html = ''
+                      if(loggedInUserId == data._id ){
+                            html = '<button type="button" class="btn btn-primary editbutton" users-id="${data._id}" users-first-name="${data.first_name}" users-last-name="${data.last_name}" users-email="${data.email}" users-role="${data.role}">Edit</button>'
+                      }else{
+                          if(loggedInUserRole == 'Admin')
+                            html = `<button type="button" class="btn btn-primary editbutton" users-id="${data._id}" users-first-name="${data.first_name}" users-last-name="${data.last_name}" users-email="${data.email}" users-role="${data.role}">Edit</button>
+                                    <button type="button" class="btn btn-danger deletebutton" users-id="${data._id}">Delete</button>`                            
+                      }
+                      return html
                   },
                   "orderable": false
               }
@@ -125,7 +144,9 @@ export class UsersComponent implements OnInit {
                   this.userId = target.getAttribute('users-id')
                   this.firstName = target.getAttribute('users-first-name')
                   this.lastName = target.getAttribute('users-last-name')
-                  this.userEmail = target.getAttribute('users-email');                        
+                  this.userEmail = target.getAttribute('users-email');
+                  this.userRole = target.getAttribute('users-role'); 
+                  //console.log("Role: "+ this.userRole);                        
                   (<any>$('#user-add')).modal('show')
             }
             if (target.tagName.toLowerCase() == 'button' && $(target).hasClass('closeForm')) {

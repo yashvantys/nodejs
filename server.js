@@ -4,11 +4,8 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = express()
 
-
-
 const auth = require('./auth')
 const userRoutes = require('./api/routes/users')
-
 
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}))
@@ -21,6 +18,7 @@ mongoose.connect('mongodb://mahika:mahika123@ds215370.mlab.com:15370/survey_comp
     }
 })
 
+// routes
 app.use('/auth', auth.router)
 app.use('/users', userRoutes)
 
@@ -37,4 +35,5 @@ app.use((error, req, res, next)=>{
     })
 })
 
+// listen server port
 app.listen(process.env.PORT || 3000)
