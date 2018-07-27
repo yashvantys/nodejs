@@ -12,16 +12,23 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="btn-group">
-                    <!--<button class="btn btn-primary" data-toggle="modal" data-target="#user-add"> Add New
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#content-add"> Add New
                         <i class="fa fa-plus"></i>
-                    </button>-->
+                    </button>
                 </div>
             </div>                                           
         </div>
       
       <div class="tile">
         <div class="tile-body">
-            
+          <table id="contents-list" datatable [dtOptions]="dtOptions" class="row-border hover">
+            <thead>
+                 <tr>          
+                     <th>Title</th>
+                     <th>Action</th>
+                 </tr>
+            </thead>                
+          </table>
         </div>
       </div>
     </div>

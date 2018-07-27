@@ -16,7 +16,8 @@ import { AdminFooterComponent } from './_layout/admin-footer/admin-footer.compon
 import { AdminLayoutComponent } from './_layout/admin-layout/admin-layout.component'
 import { UsersComponent } from './users/users.component'
 import { DataTablesModule } from 'angular-datatables'
-import { UsersService } from './services/users.service';
+import { UsersService } from './services/users.service'
+import { ContentsService } from './services/contents.service'
 import { ContentComponent } from './content/content.component'
 import { AuthInterceptorService} from './authInterceptor.service'
 
@@ -41,7 +42,7 @@ import { AuthInterceptorService} from './authInterceptor.service'
     HttpClientModule,
     DataTablesModule
   ],
-  providers: [ApiService, AuthService, AuthGuard, UsersService, {
+  providers: [ApiService, AuthService, AuthGuard, UsersService, ContentsService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true

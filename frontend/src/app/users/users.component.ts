@@ -41,9 +41,7 @@ export class UsersComponent implements OnInit {
   userEmail: string = null
   userRole: string = null
   loggedInUserId: string = null
-  loggedInUserRole: string = null
-  
-  
+  loggedInUserRole: string = null 
 
   constructor(private http: HttpClient, private usersservice: UsersService, private userFormBuilder: FormBuilder) {}
 
@@ -146,7 +144,6 @@ export class UsersComponent implements OnInit {
                   this.lastName = target.getAttribute('users-last-name')
                   this.userEmail = target.getAttribute('users-email');
                   this.userRole = target.getAttribute('users-role'); 
-                  //console.log("Role: "+ this.userRole);                        
                   (<any>$('#user-add')).modal('show')
             }
             if (target.tagName.toLowerCase() == 'button' && $(target).hasClass('closeForm')) {
@@ -157,10 +154,8 @@ export class UsersComponent implements OnInit {
             }
             if (target.tagName.toLowerCase() == 'button' && $(target).hasClass('deletebutton')) {
                   let userId = target.getAttribute('users-id');
-                  //console.log("path:" + this.path+ '/deleteUser/' + userId)                                   
                   bootbox.confirm("Are you sure want to delete?", (result)=> {
                       if(result){
-                        //this.http.post('http://localhost:3000/deleteUser', JSON.stringify({"id":userId}))
                             this.usersservice.deleteUser(userId)
                               .subscribe(res => {
                                 if(res['statusCode'] == 200) {
@@ -175,8 +170,7 @@ export class UsersComponent implements OnInit {
                             $('#ajaxResults').addClass('alert alert-danger').html('Sorry for the inconvenience. Please try again later.') ;
                             setTimeout(function() {
                                  $('#ajaxResults').removeClass('alert alert-danger').html('');
-                               }, 2000);
-            
+                               }, 2000);            
                           });
                        }
                   })
