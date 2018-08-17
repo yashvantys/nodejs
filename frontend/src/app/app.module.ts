@@ -20,6 +20,11 @@ import { UsersService } from './services/users.service'
 import { ContentsService } from './services/contents.service'
 import { ContentComponent } from './content/content.component'
 import { AuthInterceptorService} from './authInterceptor.service'
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { HeaderComponent } from './_layout/front/header/header.component';
+import { FooterComponent } from './_layout/front/footer/footer.component';
+import { MainLayoutComponent } from './_layout/front/main-layout/main-layout.component';
+import { HomeComponent } from './home/home.component'
 
 
 @NgModule({
@@ -31,7 +36,11 @@ import { AuthInterceptorService} from './authInterceptor.service'
     AdminFooterComponent,
     AdminLayoutComponent,
     UsersComponent,
-    ContentComponent
+    ContentComponent,
+    HeaderComponent,
+    FooterComponent,
+    MainLayoutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,9 @@ import { AuthInterceptorService} from './authInterceptor.service'
     FormsModule,
     HttpModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
+    FroalaEditorModule,
+    FroalaViewModule
   ],
   providers: [ApiService, AuthService, AuthGuard, UsersService, ContentsService, {
     provide: HTTP_INTERCEPTORS,

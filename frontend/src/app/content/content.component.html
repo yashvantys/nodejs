@@ -34,3 +34,40 @@
     </div>
   </div>
 </main>
+
+<!-- Modal Start-->
+<div class="modal fade" id="content-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add/Edit Content</h5>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+        <div class="modal-body">
+          <form class="user-form" (ngSubmit)="saveDetails()" [formGroup]="contentsForm">
+              <input type="hidden" formControlName="content_id" [(ngModel)]="this.contentId">
+                <div class="form-group" [ngClass]="{'alert alert-danger': (contentsForm.get('title').touched || contentsForm.get('title').dirty) && !contentsForm.get('title').valid }">
+                  <label class="control-label">Title</label>
+                  <input class="form-control" type="text" placeholder="Title" formControlName="title" [(ngModel)]="this.title">
+                  <span class="help-block" *ngIf="(contentsForm.get('title').touched || contentsForm.get('title').dirty) && contentsForm.get('title').errors">
+                    <span *ngIf="contentsForm.get('title').errors?.required">Title is required.</span>                        
+                  </span>
+                </div>  
+                <div class="form-group" [ngClass]="{'alert alert-danger': (contentsForm.get('description').touched || contentsForm.get('description').dirty) && !contentsForm.get('description').valid }">
+                  <label class="control-label">Description</label>
+                  <textarea  class="form-group" [froalaEditor] id="froala-editor" formControlName="description" [(ngModel)]="this.description"></textarea>
+                  <span class="help-block" *ngIf="(contentsForm.get('description').touched || contentsForm.get('description').dirty) && contentsForm.get('description').errors">
+                    <span *ngIf="contentsForm.get('description').errors?.required">Description is required.</span>                        
+                  </span>
+                </div>  
+                
+
+                <div class="form-group btn-container">
+                    <button class="btn btn-primary" [disabled]="!contentsForm.valid"><i class="fa fa-sign-in fa-lg fa-fw"></i>Submit</button>
+                    <button class="btn btn-secondary closeForm" data-dismiss="modal" type="button">Cancel</button>
+                </div>
+          </form>
+        </div>       
+    </div>
+  </div>
+</div>

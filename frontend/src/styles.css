@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.inactiveContent {
+    color:#A9A9A9 !important;
+}
+
+.activeContent{
+    color: #1aaf2e !important; 
+}
+

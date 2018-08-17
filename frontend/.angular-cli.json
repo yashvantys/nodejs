@@ -20,17 +20,23 @@
       "prefix": "app",
       "styles": [
         "styles.css",
+        "./assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css",
         "./assets/font-awesome/css/font-awesome.min.css",
         "./assets/simple-line-icons/simple-line-icons.min.css",
         "./assets/css/main_style.css",
-        "../node_modules/datatables.net-dt/css/jquery.dataTables.css"      
+        "../node_modules/datatables.net-dt/css/jquery.dataTables.css",
+        "../node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+        "../node_modules/froala-editor/css/froala_style.min.css",
+        "./assets/css/main_styles.css",
+        "./assets/css/responsive.css"             
       ],
       "scripts": [
             "./assets/js/jquery-3.2.1.min.js",
             "./assets/js/popper.min.js",
             "../node_modules/bootstrap/dist/js/bootstrap.min.js",
             "../node_modules/datatables.net/js/jquery.dataTables.js",
-            "../node_modules/bootbox/bootbox.js" 
+            "../node_modules/bootbox/bootbox.js",
+            "../node_modules/froala-editor/js/froala_editor.pkgd.min.js"            
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
