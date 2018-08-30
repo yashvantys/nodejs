@@ -40,13 +40,12 @@
             </div>
             <nav class="main_nav_contaner ml-auto">
               <ul class="main_nav">
-                <li class="active"><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-                <li><a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About</a></li>
-                <li><a routerLink="/contact" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Contact</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/home/about">About</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/home/contact">Contact US</a></li>
               </ul>
-              <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
+              
               <!-- Hamburger -->
-              <div class="shopping_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
               <div class="hamburger menu_mm">
                 <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
               </div>
@@ -93,4 +92,5 @@
       <li class="menu_mm"><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-</div>	
+</div>
+	

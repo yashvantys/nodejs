@@ -9,6 +9,8 @@ import { UsersComponent } from './users/users.component'
 import { ContentComponent } from './content/content.component'
 import { MainLayoutComponent } from './_layout/front/main-layout/main-layout.component'
 import { HomeComponent } from './home/home.component'
+import { AboutComponent } from './about/about.component'
+import { ContactComponent } from './contact/contact.component'
 
 const routes: Routes = [
   
@@ -25,9 +27,15 @@ const routes: Routes = [
   },
 
   // front layout routes
-    { path: 'home', component: MainLayoutComponent,children:[
-      {path: '', component:HomeComponent, pathMatch: 'full'}
-    ] },
+    { path: 'home', component: MainLayoutComponent,
+      children:[
+        {path: '', component:HomeComponent, pathMatch: 'full'},
+        {path: 'about', component:AboutComponent, pathMatch: 'full'},
+        {path: 'contact', component:ContactComponent, pathMatch: 'full'}
+
+      ]
+    },
+    
   
 
 

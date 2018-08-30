@@ -24,7 +24,9 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { HeaderComponent } from './_layout/front/header/header.component';
 import { FooterComponent } from './_layout/front/footer/footer.component';
 import { MainLayoutComponent } from './_layout/front/main-layout/main-layout.component';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component'
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { HomeComponent } from './home/home.component'
     HeaderComponent,
     FooterComponent,
     MainLayoutComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
