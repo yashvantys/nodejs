@@ -11,6 +11,7 @@ import { MainLayoutComponent } from './_layout/front/main-layout/main-layout.com
 import { HomeComponent } from './home/home.component'
 import { AboutComponent } from './about/about.component'
 import { ContactComponent } from './contact/contact.component'
+import { ServicesComponent } from './services/services.component'
 
 const routes: Routes = [
   
@@ -31,7 +32,8 @@ const routes: Routes = [
       children:[
         {path: '', component:HomeComponent, pathMatch: 'full'},
         {path: 'about', component:AboutComponent, pathMatch: 'full'},
-        {path: 'contact', component:ContactComponent, pathMatch: 'full'}
+        {path: 'contact', component:ContactComponent, pathMatch: 'full'},
+        {path: 'services', component:ServicesComponent, pathMatch: 'full'}
 
       ]
     },

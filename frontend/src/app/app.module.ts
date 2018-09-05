@@ -26,7 +26,8 @@ import { FooterComponent } from './_layout/front/footer/footer.component';
 import { MainLayoutComponent } from './_layout/front/main-layout/main-layout.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component'
+import { ContactComponent } from './contact/contact.component';
+import { ServicesComponent } from './services/services.component'
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ContactComponent } from './contact/contact.component'
     MainLayoutComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
