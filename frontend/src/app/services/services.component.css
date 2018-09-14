@@ -629,3 +629,98 @@
 	color: #14bdee;
 	text-decoration: underline;
 }
+
+.img-service {/*background-image:url(assets/images/border-right.png*);*/background-repeat: no-repeat;
+	background-position: right center !important;}
+	.future-service img{	
+		padding: 0px 0;
+		margin: 0 auto;
+		} 
+		#feature .center {padding-bottom: 40px;}
+	.future-service h3 { 
+		font-size: 14px;
+		margin: 0 auto;
+		padding: 6px 25px;
+		text-align: justify;
+		height: 155px;
+		line-height: 24px;
+	
+	}
+	.h3-second h3{height: 200px;}
+	.service-more h4 a{ 
+		color: #d74444;
+	font-size: 16px;
+	transition: 0.5s linear;
+	font-weight: 600;
+	margin: 0 auto;
+	padding: 6px 25px;
+	/*background:url(../images/services/inner-page/mygif/sprites.png) 125px -58px no-repeat;*/
+	padding-right: 40px;
+	-webkit-transition: background-position 200ms ease-in-out;
+	transition: background-position 200ms ease-in-out;
+	}
+	.future-service .feature-wrap:hover .service-more h4 a {
+	background-position: 135px -58px;
+	}
+	
+		
+	.future-service .feature-wrap { 
+		margin-bottom: 30px;
+		overflow: hidden;
+		padding: 10px 0px;
+		transition: 0.7s linear;
+		}
+	
+	
+	.future-service .feature-wrap:hover {
+		box-shadow: 0px 0px 0px grey !important;	  
+	}
+	
+	#services {
+	  /*background: #000 url(../images/services/bg_services.png);*/
+	  background-size: cover;
+	  background-attachment: fixed;
+	}
+	
+	#services .lead,
+	#services h2{
+	  color: #fff;
+	}
+	
+	.services-wrap {
+	  padding: 18px 18px;/*padding: 40px 30px;*/
+	  background: #fff;
+	  border-radius: 4px;
+	  margin: 0 0 40px; 
+	}
+	.services-wrap:hover {box-shadow: 3px 3px 3px 3px white;}
+	
+	#services .services-wrap img {float: left;width:90px;margin-top: 5px;} 
+	.services-wrap h3 {
+		font-size: 20px;
+		margin-left: 100px;
+		margin-top: 0px;
+		color: #454343;
+		font-weight: 600;		
+	  
+	}
+	#services .services-wrap p{
+	height:145px;
+	margin-left: 10px;
+	text-align: justify;}
+	.services-wrap .pull-left {
+	  margin-right: 20px;
+	}
+
+	.service-more h4 a {
+		color: #d74444;
+		font-size: 16px;
+		transition: 0.5s linear;
+		font-weight: 600;
+		margin: 0 auto;
+		padding: 6px 25px;
+		background: url(../../assets/images/sprites.png) 120px -58px no-repeat;
+		padding-right: 50px;
+		-webkit-transition: background-position 200ms ease-in-out;
+		transition: background-position 200ms ease-in-out;
+	}
