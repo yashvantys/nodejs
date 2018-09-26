@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="header">			
+<header class="header">
   <!-- Top Bar -->
   <div class="top_bar">
     <div class="top_bar_container">
@@ -8,7 +8,9 @@
           <div class="col">
             <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
               <ul class="top_bar_contact_list">
-                <li><div class="question">Have any query?</div></li>
+                <li>
+                  <div class="question">Have any query?</div>
+                </li>
                 <li>
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   <div>+91-9642796505</div>
@@ -19,13 +21,14 @@
                 </li>
               </ul>
               <div class="top_bar_login ml-auto">
-                <div class="login_button"><a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Admin Login</a></div>
+                <div class="login_button"><a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Admin
+                    Login</a></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>				
+    </div>
   </div>
   <!-- Header Content -->
   <div class="header_container">
@@ -35,17 +38,22 @@
           <div class="header_content d-flex flex-row align-items-center justify-content-start">
             <div class="logo_container">
               <a href="#">
-                <div class="logo_text">Yashva<span>nt</span></div>
+                <div class="logo_text"><span><img src="assets/images/logo1.png" alt="Yash Compusoft"></span>
+                  <!--Yashva<span>nt</span>-->
+                </div>
+
               </a>
             </div>
             <nav class="main_nav_contaner ml-auto">
               <ul class="main_nav">
                 <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
                 <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/home/services">Services</a></li>
-                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/home/about">About Us</a></li>
-                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/home/contact">Contact US</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/home/about">About
+                    Us</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/home/contact">Contact
+                    US</a></li>
               </ul>
-              
+
               <!-- Hamburger -->
               <div class="hamburger menu_mm">
                 <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
@@ -72,12 +80,17 @@
           </div>
         </div>
       </div>
-    </div>			
-  </div>			
+    </div>
+  </div>
 </header>
 <!-- Menu -->
 <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
-  <div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+  <div class="menu_close_container">
+    <div class="menu_close">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <div class="search">
     <form action="#" class="header_search_form menu_mm">
       <input type="search" class="search_input menu_mm" placeholder="Search" required="required">
@@ -94,4 +107,3 @@
     </ul>
   </nav>
 </div>
-	
