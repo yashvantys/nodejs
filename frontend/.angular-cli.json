@@ -28,15 +28,16 @@
         "../node_modules/froala-editor/css/froala_editor.pkgd.min.css",
         "../node_modules/froala-editor/css/froala_style.min.css",
         "./assets/css/main_styles.css",
-        "./assets/css/responsive.css"             
+        "./assets/css/responsive.css"
       ],
       "scripts": [
-            "./assets/js/jquery-3.2.1.min.js",
-            "./assets/js/popper.min.js",
-            "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-            "../node_modules/datatables.net/js/jquery.dataTables.js",
-            "../node_modules/bootbox/bootbox.js",
-            "../node_modules/froala-editor/js/froala_editor.pkgd.min.js"            
+        "./assets/js/jquery-3.2.1.min.js",
+        "./assets/js/popper.min.js",
+        "./assets/js/mmenu.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/datatables.net/js/jquery.dataTables.js",
+        "../node_modules/bootbox/bootbox.js",
+        "../node_modules/froala-editor/js/froala_editor.pkgd.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
