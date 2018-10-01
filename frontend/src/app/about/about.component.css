@@ -118,3 +118,27 @@
 {
 	line-height: 2;
 }
+
+#areas_expertise ul.list-expertise {
+    display: inline-block;
+    clear: both;
+    border-bottom: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+}
+.list-expertise {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: square;
+}
+.list-expertise li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 5px;
+    background-color: #fff;
+    border: 1px solid #e2e2e2;
+    border-bottom: 0;
+    float: left;
+    width: 100%;
+}
