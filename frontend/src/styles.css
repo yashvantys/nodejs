@@ -55,6 +55,21 @@
 	content: '';
 }
 
+.emaillink{ color:#ffffff;}
+.emaillink a {
+    color: #1124d1;
+}
+.emaillink a:hover
+{
+	color: #d1dcdf;
+}
+.emaillinktop{
+    color: #ffffff;
+}
+.contactlink{
+	color: #5e6271;
+}
+
 
 
 
