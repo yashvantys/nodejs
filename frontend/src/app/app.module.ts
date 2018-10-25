@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-import { FormsModule,  ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './/app-routing.module'
@@ -19,7 +19,7 @@ import { DataTablesModule } from 'angular-datatables'
 import { UsersService } from './services/users.service'
 import { ContentsService } from './services/contents.service'
 import { ContentComponent } from './content/content.component'
-import { AuthInterceptorService} from './authInterceptor.service'
+import { AuthInterceptorService } from './authInterceptor.service'
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { HeaderComponent } from './_layout/front/header/header.component';
 import { FooterComponent } from './_layout/front/footer/footer.component';
@@ -27,7 +27,8 @@ import { MainLayoutComponent } from './_layout/front/main-layout/main-layout.com
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { ServicesComponent } from './services/services.component'
+import { ServicesComponent } from './services/services.component';
+import { ContactService } from './services/contact.service'
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { ServicesComponent } from './services/services.component'
     FroalaEditorModule,
     FroalaViewModule
   ],
-  providers: [ApiService, AuthService, AuthGuard, UsersService, ContentsService, {
+  providers: [ApiService, AuthService, AuthGuard, UsersService, ContentsService, ContactService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true

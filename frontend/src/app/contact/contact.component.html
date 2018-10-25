@@ -1,75 +1,81 @@
 <div class="home">
-	<div class="breadcrumbs_container">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="breadcrumbs">
-						<ul>
-							<li><a routerLink="/">Home</a></li>
-							<li>Contact</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="breadcrumbs_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li>Contact</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="contact">
-	<!-- Contact Info -->
+  <!-- Contact Info -->
 
-	<div class="contact_info_container">
-		<div class="container">
-			<div class="row">
+  <div class="contact_info_container">
+    <div class="container">
+      <div class="row">
 
-				<!-- Contact Form -->
-				<div class="col-lg-6">
-					<div class="contact_form">
-						<div class="contact_info_title">Let’s Get in Touch</div>
-						<form action="#" class="comment_form">
-							<div>
-								<div class="form_title">Name</div>
-								<input type="text" class="comment_input" required="required">
-							</div>
-							<div>
-								<div class="form_title">Email</div>
-								<input type="text" class="comment_input" required="required">
-							</div>
-							<div>
-								<div class="form_title">Message</div>
-								<textarea class="comment_input comment_textarea" required="required"></textarea>
-							</div>
-							<div>
-								<button type="submit" class="comment_button trans_100">submit</button>
-							</div>
-						</form>
-					</div>
-				</div>
+        <!-- Contact Form -->
+        <div class="col-lg-6">
+          <div class="contact_form">
+            <div class="contact_info_title">Let’s Get in Touch</div>
+            <div *ngIf="emailSend" class="alert alert-success">
+              Email send successfull
+            </div>
+            <form (ngSubmit)="contact()" [formGroup]="contactForm" class="comment_form">
+              <div class="form-group" [ngClass]="{'alert alert-danger': (contactForm.get('name').touched || contactForm.get('name').dirty) && !contactForm.get('name').valid }">
+                <div class="form_title">Name</div>
+                <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                <span class="help-block" *ngIf="(contactForm.get('name').touched || contactForm.get('name').dirty) && contactForm.get('name').errors">
+                  <span *ngIf="contactForm.get('name').errors?.required">Name is required.</span>
+                </span>
+              </div>
+              <div class="form-group" [ngClass]="{'alert alert-danger': (contactForm.get('email').touched || contactForm.get('email').dirty) && !contactForm.get('email').valid }">
+                <div class="form_title">Email</div>
+                <input class="form-control" type="text" placeholder="Email" formControlName="email">
+                <span class="help-block" *ngIf="(contactForm.get('email').touched || contactForm.get('email').dirty) && contactForm.get('email').errors">
+                  <span *ngIf="contactForm.get('email').errors?.required">Email is required.</span>
+                  <span *ngIf="contactForm.get('email').errors.pattern">Email is invalid.</span>
+                </span>
+              </div>
+              <div class="form-group" [ngClass]="{'alert alert-danger': (contactForm.get('message').touched || contactForm.get('message').dirty) && !contactForm.get('message').valid }">
+                <div class="form_title">Message</div>
+                <textarea class="form-control" formControlName="message" placeholder="Message"></textarea>
+                <span class="help-block" *ngIf="(contactForm.get('message').touched || contactForm.get('message').dirty) && contactForm.get('message').errors">
+                  <span *ngIf="contactForm.get('message').errors?.required">Message is required.</span>
+                </span>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-primary btn-block comment_button trans_100" [disabled]="!contactForm.valid">submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
 
-				<!-- Contact Info -->
-				<div class="col-lg-6">
-					<div class="contact_info">
-						<div class="contact_info_location">
-							<div class="contact_info_location_title">Office Address</div>
-							<ul class="location_list">
-								<li>E-301, GIDC, Gandhinagar, Gujarat-382016</li>
-								<li><i class="fa fa-phone" aria-hidden="true"></i> <a href="skype:yashvant.yadav?call" class="contactlink">+91-9642796505</a></li>
-								<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:yashvanty@gmail.com" class="contactlink">yashvanty@gmail.com</a></li>
-							</ul>
-						</div>
-						<div class="contact_info">
-							<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-							<div style='overflow:hidden;height:250px;width:500px;'>
-								<div id='gmap_canvas' style='height:250px;width:500px;'></div>
-								<div><small><a href="http://www.googlemapsgenerator.com/en/">www.googlemapsgenerator.com/en/</a></small></div>
-								<div><small><a href="https://mrdiscountcode.hk/foreo/">mrdiscountcode.hk/foreo/</a></small></div>
-								<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
-							</div>
-							<script type='text/javascript'>function init_map() { var myOptions = { zoom: 10, center: new google.maps.LatLng(23.2156354, 72.63694149999992), mapTypeId: google.maps.MapTypeId.ROADMAP }; map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions); marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(23.2156354, 72.63694149999992) }); infowindow = new google.maps.InfoWindow({ content: '<strong>Yash Compusoft</strong><br>E-301 GIDC gandhinagar, Gujarat<br>' }); google.maps.event.addListener(marker, 'click', function () { infowindow.open(map, marker); }); infowindow.open(map, marker); } google.maps.event.addDomListener(window, 'load', init_map);</script>
-						</div>
+        <!-- Contact Info -->
+        <div class="col-lg-6">
+          <div class="contact_info">
+            <div class="contact_info_location">
+              <div class="contact_info_location_title">Office Address</div>
+              <ul class="location_list">
+                <li>E-301, GIDC, Gandhinagar, Gujarat-382016</li>
+                <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="skype:yashvant.yadav?call" class="contactlink">+91-9642796505</a></li>
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:yashvanty@gmail.com" class="contactlink">yashvanty@gmail.com</a></li>
+              </ul>
+            </div>
+            <div class="contact_info" #map style="height:400px;width:400px">
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

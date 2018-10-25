@@ -6,10 +6,13 @@ const app = express()
 
 const auth = require('./auth')
 const userRoutes = require('./api/routes/users')
-const contentRoutes = require('./api/routes/contents')
+const contentRoutes = require('./api/routes/contents');
+const contactRoutes = require('./api/routes/contact');
 
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 app.use(bodyParser.json())
 
 // mongodb connection
@@ -20,9 +23,10 @@ mongoose.connect('mongodb://mahika:mahika123@ds215370.mlab.com:15370/survey_comp
 })
 
 // routes
-app.use('/auth', auth.router)
-app.use('/users', userRoutes)
-app.use('/contents', contentRoutes)
+app.use('/auth', auth.router);
+app.use('/users', userRoutes);
+app.use('/contents', contentRoutes);
+app.use('/contact', contactRoutes);
 
 // error handling
 app.use((req, res, next) => {
